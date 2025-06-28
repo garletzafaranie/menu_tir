@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی  گارلت | Cafe Garlet</title>
+    <style>
+        /* فونت اختصاصی */
+        @font-face {
+            font-family: Mj_Bassam;
+            src: url('fonts/Modam-SemiBold.ttf') format('truetype');
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: modam;
+            src: url('fonts/Modam-Light.ttf.ttf') format('truetype');
+            /*font-weight: normal;*/
+        }
+        /* Webfont: Potk-Black */@font-face {
+    font-family: 'PotkBlack';
+   /* src: url('fonts/Potk.eot'); 
+    src: url('fonts/Potk.eot?#iefix') format('embedded-opentype'),  */
+    src:   url('fonts/Potk.woff') format('woff'), /* Modern Browsers */
+    src:   url('fonts/Potk.woff2') format('woff2'), /* Modern Browsers */
+    src:   url('fonts/Potk.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+        
+        /* استایل پایه */
+        body {
+            font-family: 'Mj_Bassam', sans-serif;
+            /*background: #d1e2b9;*/
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+            position: relative;
+        }
+        
+        h1:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #27ae60;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        /* دسته‌بندی‌ها */
+        .category {
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        /* شکل‌های مینیمال مرتبط با فیتنس */
+        .category:before {
+            content: "";
+            position: absolute;
+            opacity: 0.1;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 120px;
+            height: 120px;
+        }
+        
+        /* رنگ‌بندی و اشکال هر دسته */
+        .pro-category {
+           /* background: linear-gradient(135deg, #e74c3c 0%, #fff 100%);*/
+        }
+        .pro-category:before {
+            /*background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 2 2 0 0 1-2 2h-6v6a2 2 0 0 1-2 2 10 10 0 0 1-10-10A10 10 0 0 1 12 2z" fill="%23e74c3c"/></svg>');*/
+            background-image: url('images/exercise-health-fitness-weight-svgrepo-com.svg');
+            right: -30px;
+            bottom: -30px;
+        }
+        
+        .carbo-category {
+           /* background: linear-gradient(135deg, #f39c12 0%, #fff 100%);*/
+        }
+        .carbo-category:before {
+            background-image: url('images/game-ball-sport-baseketball-svgrepo-com.svg');
+            left: -30px;
+            top: 30px;
+        }
+        .snack-category {
+           /* background: linear-gradient(135deg, #4e1c91 0%, #fff 100%);*/
+        }
+        .snack-category:before {
+            background-image: url('images/cycling-svgrepo-com.svg');
+            left: 50px;
+            bottom: 30px;
+        }
+        
+        .drinks-category {
+          /*  background: linear-gradient(135deg, #3498db 0%, #fff 100%);*/
+        }
+        .drinks-category:before {
+            background-image: url('images/game-sports-play-bowling-svgrepo-com.svg');
+            right: -50px;
+            top: 50px;
+        }
+        
+        .salads-category {
+           /* background: linear-gradient(135deg, #27ae60 0%, #fff 100%);*/
+        }
+        .salads-category:before {
+            background-image: url('images/game-sports-sport-play-tennis-svgrepo-com.svg');
+            left: -30px;
+            bottom: -30px;
+        }
+        .coffee-category {
+          /*  background: linear-gradient(135deg, #533404 0%, #fff 100%);*/
+        }
+        .coffee-category:before {
+            background-image: url('images/jumping-rope-svgrepo-com.svg');
+            right: -10px;
+            bottom: -10px;
+        }
+        .sauce-category {
+           /*background: linear-gradient(135deg, #878896 0%, #fff 100%);*/
+        }
+        .sauce-category:before {
+            background-image: url('images/hanging-wheel-of-fitness-equipments-svgrepo-com.svg');
+            left: -10px;
+            bottom: 20px;
+        }
+        .category-title {
+            font-size: 20px;
+            padding: 15px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pro-title { background: #e74c3c; } /* پروتئین */
+        .carbo-title { background: #f39c12; } /* کربوهیدرات */
+        .drinks-title { background: #3498db; } /* نوشیدنی */
+        .salads-title { background: #27ae60; }
+        .snack-title { background: #4e1c91; } /* سالاد */
+        .coffee-title { background: #533404; } /* سالاد */
+        .sauce-title { background: #878896; }
+        
+        /* آیتم‌های منو */
+        .menu-items {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .item-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: fit-content;
+            margin-inline: auto;
+            text-align: center;
+        }
+        
+        .item-desc {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: fit-content;
+            margin-inline: auto;
+            text-align: center;
+        }
+        
+        .item-price {
+            font-family: modam;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            background: #111124;
+            padding: auto;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: bottom;
+            text-align: center;
+        }
+        
+        /* شکل‌های کوچک در آیتم‌ها */
+        .fitness-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+    .contact-info {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        font-family: 'Mj_Bassam', sans-serif;
+        font-size: 24px;
+    }
+    
+    .contact-info p {
+        margin: 5px 0;
+        color: #333;
+    }
+
+        * {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width : 200; 
+  height :200;
+}
+
+.wrapper {
+  position: relative; /* prevent position absolute element from exceding this element */
+  display: inline-block; /* prevent stretching element to full width like display: block does */
+}
+
+.wrapper .blackoverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .6);
+  width:200; 
+  height:200;
+}
+    </style>
+</head>
+<body>
+    <h1>گارلت</h1>
+    
+    <!-- دسته پروتئین -->
+    <div class="category pro-category">
+        <div class="category-title pro-title">
+            پرو پایه 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            
+            <div class="menu-item">
+                <img src="images\tartar.webp" class="blackoverlay" alt=" ساندویچ مرغ تارتار " width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name"> ساندویچ مرغ تارتار<span class="item-price">246</span></div>
+                    <div class="item-desc">تهیه شده از فیله های گریل شده و مرینت شده با سس مخصوص تارتار رزیمی و نان چاپاتا رژیمی به همراه سالاد کلم و سس مخصوص تارتار</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\chickbreast.webp" class="blackoverlay" alt="چیکن گریل تکه‌ای"width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیکن گریل تکه‌ای<span class="item-price">408</span></div>
+                    <div class="item-desc">تهیه شده از 350 گرم مرغ گریل شده به همراه سس مخصوص باربیکیو گارلت</div>
+                </div>
+            </div>
+            <!-- 11 آیتم دیگر -->
+            <div class="menu-item">
+                <img src="images\chickpillaf.webp" class="blackoverlay" alt="  چیکن پلو  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیکن پلو<span class="item-price">339</span></div>
+                    <div class="item-desc">تهیه شده از 160 گرم استیک مرغ گریل شده به همراه و برنج قهوه ای طعم دار شده و زیتون با سس مرغ مخصوص گارلت</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\roastbeefsnad.webp" class="blackoverlay" alt="ساندویچ رست بیف"width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">ساندویچ رست بیف<span class="item-price">327</span></div>
+                    <div class="item-desc">تهیه شده از ۱۰۰ گرم گوشت راسته گوساله رست شده بدون چربی به همراه نان چاباتا رژیمی و سس تارتار سالاد کلم به همراه زیتون طعم دار شده</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\filletpro.webp" class="blackoverlay" alt="  پرو فیله  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پرو فیله<span class="item-price">305</span></div>
+                    <div class="item-desc">تهیه شده از 180 گرم فیله مرغ گریل شده به همراه برنج قهوه ای و سس مخصوص مرغ و زیتون</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\pasta.webp" class="blackoverlay" alt="  پرو پاستا  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پرو پاستا<span class="item-price">287</span></div>
+                    <div class="item-desc">تهیه شده از پاستای رژیمی و پروتئینی برند زرماکارون،ترکیب شده با سس پستو رژیمی گارلت به همراه 100 گرم تکه های سینه مرغ گریل شده.</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\chickclub.webp" class="blackoverlay" alt="  کلاب چیکن  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">کلاب چیکن<span class="item-price">242</span></div>
+                    <div class="item-desc">تهیه شده از 100 گرم مرغ گریل شده با مرینت مخصوص به همرا نان پروتئینی و پنیر بدون چربی و بیکن 95 درصد با میکس سبزیجات و سس مخصوص همراه </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\promix.webp" class="blackoverlay" alt="  پرو میکس  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پرو میکس<span class="item-price">436</span></div>
+                    <div class="item-desc">تهیه شده از ۸۰ گرم استیک گوشت پخته شده (راسته گوساله بدون چربی ) و ۱۰۰ گرم استیک سینه مرغ گریل شده به همراه برنج زعفرانی و سس مخصوص</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\mushpizza.webp" class="blackoverlay" alt="پیتزا قارچ و گوشت"width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پیتزا قارچ و گوشت<span class="item-price">282</span></div>
+                    <div class="item-desc">تهیه شده از نان رژیمی (نان جو) پنیر پیتزا رژیمی (پنیر بدون چربی ) گوشت چرخ کرده و قارچ (بدون چربی سس مخصوص رژیمی)</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\pestosand.webp" class="blackoverlay" alt="ساندویچ مرغ و پستو"width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">ساندویچ مرغ و پستو<span class="item-price">243</span></div>
+                    <div class="item-desc">درباره محصول ...تهیه شده از سینه مرغ گریل شده به همراه سس پستو(رژیمی گارلت) و نان چاباتا رژیمی به همراه میکس سالاد و سس تارتار رژیمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\grilledfillet.webp" class="blackoverlay" alt="  فیله گریل  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">فیله گریل<span class="item-price">331</span></div>
+                    <div class="item-desc">فیله های گریل شده(180 تا 190 گرم) با سبزیجات مخصوص گارلت با سس مخصوص و دو عدد رایس کیک</div>
+                </div>
+            </div>
+            <!-- <div class="menu-item">
+                <img src="images\fishfillet.webp" class="blackoverlay" alt="  خوراک ماهی  "width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">خوراک ماهی<span class="item-price">448</span></div>
+                    <div class="item-desc">تهیه شده از ۳۵۰ گرم ماهی گریل و سبزیجات گریل شده ( گل کلم، هویج ،فلفل دلمه،نخود فرنگی) و طعمدار شده به همراه سس مخصوص ماهی و رایس کیک</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- دسته کربوهیدرات -->
+    <div class="category carbo-category">
+        <div class="category-title carbo-title">
+            کربو پایه 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            
+            <div class="menu-item">
+                <img src="images\fesenjani.webp" class="blackoverlay" alt="چلو فیله فسنجانی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چلو فیله فسنجانی<span class="item-price">317</span></div>
+                    <div class="item-desc">تهیه شده از ۱۵۰ گرم فیله مرینت شده با مرینت رژیمی فسنجان و ۲۶۰ گرم برنج زعفرانی و سس مخصوص فسنجان و زیتون طعم دار شده</div>
+                </div>
+            </div>
+            <!-- 11 آیتم دیگر -->
+            <div class="menu-item">
+                <img src="images\burger.webp" class="blackoverlay" alt="برگر کلاب" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">برگر کلاب<span class="item-price">289</span></div>
+                    <div class="item-desc">تهیه شده از ۱۲۰ گرم گوشت چرخ کرده بدون چربی به همراه پیاز کاراملی و پنیر رژیمی بدون چربی و بیکن 95 درصد و سبزیجات دورچین و سس مخصوص گارلت</div>
+                </div>
+            </div>
+            <!-- 11 آیتم دیگر -->
+            <div class="menu-item">
+                <img src="images\pepe.webp" class="blackoverlay" alt="پیتزا پپرونی"  width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پیتزا پپرونی<span class="item-price">233</span></div>
+                    <div class="item-desc">پیتزا پپرونی (رژیمی) تهیه شده از پپرونی رژیمی و پنیر بدون چربی و نان جو و تکه های هالوپینو به همراه سس مخصوص گارلت</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\pizzachick.webp" class="blackoverlay" alt="پیتزا چیکن"  width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پیتزا چیکن<span class="item-price">292</span></div>
+                    <div class="item-desc">پیترا تهیه شده از 150 گرم مرغ گریل شده نان پیتزا جو ، فلفل دلمه ای و زیتون سیاه، پنیر رژیمی به همراه سس مخصوص گارلت</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\mac.webp" class="blackoverlay" alt="چیکن مک اند چیز"  width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیکن مک اند چیز<span class="item-price">349</span></div>
+                    <div class="item-desc">تهیه شده از 120 گرم مرغ گریل شده به همراه پنه و پنیر رژیمی و سس مخصوص گارلت</div>
+                </div>
+            </div>
+            <!-- <div class="menu-item">
+                <img src="images\steakpizza.webp" class="blackoverlay" alt="پیتزا سیر و استیک"  width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پیتزا سیر و استیک<span class="item-price">299</span></div>
+                    <div class="item-desc">تهیه شده از نان جو و 100 گرم استیک به همراه پنیر بدون چربی و سبزیجات و سس مخصوص</div>
+                </div>
+            </div> -->
+            <div class="menu-item">
+                <img src="images\lasagna.webp" class="blackoverlay" alt="لازانیا گوشت رژیمی"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">لازانیا گوشت رژیمی<span class="item-price">409</span></div>
+                    <div class="item-desc">تهیه شده از 180 گرم گوشت بدون چربی و پنیر بدون چربی و سس مخصوص گارلت</div>
+                </div>
+            </div>
+            <!-- <div class="menu-item">
+                <img src="images\fishrice.webp" class="blackoverlay" alt="سبزی پلو با ماهی"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">سبزی پلو با ماهی<span class="item-price">464</span></div>
+                    <div class="item-desc">۲۰۰ گرم فیله ماهی سالمون و 260 گرم برنج سفید به همراه زیتون طعم دار شده و سس مخصوص ماهی</div>
+                </div>
+            </div> -->
+            <div class="menu-item">
+                <img src="images\roastBrice.webp" class="blackoverlay" alt="رست بیف پلو"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">رست بیف پلو<span class="item-price">396</span></div>
+                    <div class="item-desc">تهیه شده از 280 گرم برنج قهوه ای و 80 گرم گوشت رست شده راسته گوساله بدون چربی و سس مخصوص و زیتون</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\greenricechick.webp" class="blackoverlay" alt="چیکن پلو سبز"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">چیکن پلو سبز<span class="item-price">339</span></div>
+                    <div class="item-desc">تهیه شده از 160 گرم مرغ گریل شده و برنج سفید شویدی و سس مخصوص مرغ گارلت</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\safaronfillet.webp" class="blackoverlay" alt="فیله پلو"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">فیله پلو<span class="item-price">399</span></div>
+                    <div class="item-desc">180 تا 190 گرم فیله سبزیجات گارلت به همراه بزنج زعفرانی و سس مخصوص مرغ</div>
+                </div>
+            </div>
+            <!-- <div class="menu-item">
+                <img src="images\beefrice.webp" class="blackoverlay" alt="بیف رایس"  width="200" 
+                height="200" >
+                <div class="item-content">
+                    <div class="item-name">بیف رایس<span class="item-price">449</span></div>
+                    <div class="item-desc">تهیه شده از برنج قهوه ای در کنار 115 گرم گوشت استیک و سبزیجات میکس (کلم ، فلفل دلمه ای ،نخود ،ذرت) به همراه سس گوشت مخصوص و پیاز کاراملی</div>
+                </div>
+            </div>-->  
+        </div>
+    </div>
+    <!-- دسته سالاد -->
+    <div class="category salads-category">
+        <div class="category-title salads-title">
+            سالادها 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images\basicsalad.webp" class="blackoverlay" alt="سالاد فصل" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سالاد فصل<span class="item-price">151</span></div>
+                    <div class="item-desc">تهیه شده از: کاهو، ذرت، زیتون سبز،گوجه گیلاسی، سس سیر و ماست رژیمی</div>
+                </div>
+            </div>
+            <!-- 4 آیتم دیگر -->
+            <div class="menu-item">
+                <img src="images\greeksalad.webp" class="blackoverlay" alt="سالاد یونانی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سالاد یونانی<span class="item-price">199</span></div>
+                    <div class="item-desc">تهیه شده از: کاهو، پیاز قرمز، خیار، گوجه گیلاسی، پنیر فتا، زیتون سیاه، سیاه دانه، تخمه آفتابگردان،سس بادام زمینی کنجد رژیمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\ceasarslad.webp" class="blackoverlay" alt="سالاد سزار" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سالاد سزار<span class="item-price">352</span></div>
+                    <div class="item-desc">تهیه شده از: کاهو، ذرت، زیتون سبز،گوجه گیلاسی،سینه مرغ گریل شده، تخمه آفتابگردان، سس بادام زمینی کنجد رژیمی</div>
+                </div>
+            </div>
+        <!--  <div class="menu-item">
+                <img src="images\saladsteak.webp" class="blackoverlay" alt="سالاد استیک" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سالاد استیک<span class="item-price">364</span></div>
+                    <div class="item-desc">تهیه شده از: کاهو، ذرت، زیتون سیاه، فلفل دلمه ای قرمز ، استیک گوشت گوساله، سس ریحان و بادام رژیمی</div>
+                </div>
+            </div>
+            -->  
+            <div class="menu-item">
+                <img src="images\baconsalad.webp" class="blackoverlay" alt="سالاد فیله بیکن" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سالاد فیله بیکن<span class="item-price">327</span></div>
+                    <div class="item-desc">تهیه شده از: کاهو،گوجه گیلاسی، گردو، خلال بادام، چیپس کراکر، بیکن گوساله،فیله مرغ، پنیر پارمسان، سس سیر و ماست رژیمی</div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="category snack-category">
+        <div class="category-title snack-title">
+            اسنک ها 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images\pancake.webp" class="blackoverlay" alt="پنکیک پروتئین" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">پنکیک پروتئین<span class="item-price">247</span></div>
+                    <div class="item-desc">پنکیک پروتئین تهیه شده از آرد جو و پروتئین کازئین و شیرین شده با استویا (شیرین کننده طبیعی بدون کالری) و سس شکلات اسپرسو و چیپس موز</div>
+                </div>
+            </div>
+            <!-- 9 آیتم دیگر -->
+            <div class="menu-item">
+                <img src="images\coockie.webp" class="blackoverlay" alt="کوکی گردویی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">کوکی گردویی<span class="item-price">179</span></div>
+                    <div class="item-desc">6 عدد کوکی گردویی تشکیل شده از گرانولا عسلی با سس شکلات</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\donut.webp" class="blackoverlay" alt="جو‌دونات" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">جو‌دونات<span class="item-price">206</span></div>
+                    <div class="item-desc">دونات های کوچک تهیه شده از آرد جو دوسر و شیرین شده با استویا بدون کالری و ترکیب شده با پودر پروتئین شیر در ۲ طعم شکلات تلخ نارگیل و گرانولا عسلی تهیه شده است</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/cheesecakebasic.webp" class="blackoverlay" alt="چیز کیک پروتئین" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک پروتئین<span class="item-price">246</span></div>
+                    <div class="item-desc">چیزکیک پروتئینی با سس پنیر تهیه شده از آرد جو دوسر پودر شکلات تلخ و پودر پروتئین کازئین و استویا(شرین کننده طبیعی بدون کالری)</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/cheesacakebanana.webp" class="blackoverlay" alt="چیز کیک موزی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک موزی<span class="item-price">262</span></div>
+                    <div class="item-desc">چیزکیک پروتئینی با سس پنیر تهیه شده از آرد جو دوسر پودر شکلات تلخ و پودر پروتئین کازئین و استویا(شرین کننده طبیعی بدون کالری) </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/basic cake.webp" class="blackoverlay" alt="چیز کیک تکی پروتئین" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک تکی پروتئین<span class="item-price">129</span></div>
+                    <div class="item-desc">تهیه شده از آرد جو دوسر ماست یونانی و پنیر بدون چربی و تکه های گرانولا و سس شکلات تلخ و پروتین</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/bananacake.webp" class="blackoverlay" alt="چیز کیک تکی موزی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک تکی موزی<span class="item-price">135</span></div>
+                    <div class="item-desc">تهیه شده از آرد جو دوسر ماست یونانی و پنیر بدون چربی و تکه های موز و سس شکلات تلخ و پروتئین</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/choclatecake.webp" class="blackoverlay" alt="چیز کیک تکی شکلاتی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک تکی شکلاتی<span class="item-price">135</span></div>
+                    <div class="item-desc">تهیه شده از آرد جو دوسر ماست یونانی و پنیر بدون چربی و تکه های شکلات تلخ و گرانولا و سس شکلات تلخ و پروتئین</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/pista.jpeg" class="blackoverlay" alt="چیز کیک تکی پسته" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">چیز کیک تکی پسته<span class="item-price">164</span></div>
+                    <div class="item-desc"> تهیه شده از آرد جو دوسر ماست یونانی و پنیر بدون چربی و تکه های پسته و سس شکلات تلخ و پروتئین</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\chocyoat.webp" class="blackoverlay" alt="اوت میل شکلاتی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">اوت میل شکلاتی<span class="item-price">210</span></div>
+                    <div class="item-desc">400 میلی لیتر، تهیه شده از ماست یونانی، شیر، گرانولا گردویی و شکلات تلخ و موز</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\minichocu oat.webp" class="blackoverlay" alt="مینی اوت میل شکلاتی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">مینی اوت میل شکلاتی<span class="item-price">110</span></div>
+                    <div class="item-desc">220 میلی لیتر، تهیه شده از ماست یونانی، شیر، گرانولا گردویی و شکلات تلخ و موز</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\peanutoat.webp" class="blackoverlay" alt="اوت میل بادام زمینی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">اوت میل بادام زمینی<span class="item-price">210</span></div>
+                    <div class="item-desc">400 میلی لیتر، تهیه شده از آردجو دوسر و ماست یونانی، شیر، بادام زمینی و موز</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\minioatpeanut.jpeg" class="blackoverlay" alt="مینی اوت میل بادام زمینی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">مینی اوت میل بادام زمینی<span class="item-price">110</span></div>
+                    <div class="item-desc">220 میلی لیتر، تهیه شده از آردجو دوسر و ماست یونانی،شیر، بادام زمینی و موز</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\SBoat.jpeg" class="blackoverlay" alt=" اوت میل توت فرنگی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name"> اوت میل توت فرنگی<span class="item-price">210</span></div>
+                    <div class="item-desc">400 میلی لیتر، ماست یونانی، شیر، گرانولا، موز، توت فرنگی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\iniSBoat.webp" class="blackoverlay" alt=" مینی اوت میل توت فرنگی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name"> مینی اوت میل توت فرنگی<span class="item-price">110</span></div>
+                    <div class="item-desc">220 میلی لیتر، ماست یونانی، شیر، گرانولا، موز، توت فرنگی</div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!--   نوشیدنی -->
+       <div class="category drinks-category">
+        <div class="category-title drinks-title">
+           بار سرد
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images\mojito.jpeg" class="blackoverlay" alt="موهیتو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">موهیتو<span class="item-price">127</span></div>
+                    <div class="item-desc">350 میلی لیتر، اب گازدار، تکه های لیمو، نعنا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\bluemojito.jpeg" class="blackoverlay" alt="بلو موهیتو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">بلو موهیتو<span class="item-price">136</span></div>
+                    <div class="item-desc">350 میلی لیتر، نعنا، لیمو، سیروپ رژیمی بلوبری</div>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="images\redmojito.jpeg" class="blackoverlay" alt="رد موهیتو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">رد موهیتو<span class="item-price">136</span></div>
+                    <div class="item-desc">350 میلی لیتر، اب گازدار، تکه های لیمو، توت فرنگی بلند شده، نعنا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\bluecaracao.jpeg" class="blackoverlay" alt="بلوکاراسائو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">بلوکاراسائو<span class="item-price">127</span></div>
+                    <div class="item-desc">350 میلی لیتر، دانه چیا، سیروپ بلوکاراسائو، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\pinacolada.jpeg" class="blackoverlay" alt="نوشیدنی پیناکولادا" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">نوشیدنی پیناکولادا<span class="item-price">145</span></div>
+                    <div class="item-desc">350 میلی لیتر، آناناس، نارگیل، آب گازدار، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\classicicedtea.jpeg" class="blackoverlay" alt="آیس تی کلاسیک" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس تی کلاسیک<span class="item-price">128</span></div>
+                    <div class="item-desc">400 میلی لیتر، چای سبز، تکه های لیمو، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\ananasivetea.jpeg" class="blackoverlay" alt="آیس تی آناناس" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس تی آناناس<span class="item-price">134</span></div>
+                    <div class="item-desc">400 میلی لیتر، چای سبز، تکه های آناناس، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\berryocedtae.jpeg" class="blackoverlay" alt="آیس تی بری" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس تی بری<span class="item-price">124</span></div>
+                    <div class="item-desc">400 میلی لیتر، چای سبز، تکه های توت فرنگی، عصاره میوه های قرمز، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\appleicedtea.jpeg" class="blackoverlay" alt="آیس تی سیب دارچین" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس تی سیب دارچین<span class="item-price">128</span></div>
+                    <div class="item-desc">400 میلی لیتر، چای سبز، تکه های سیب، شیرین شده با استویا</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\voke.jpeg" class="blackoverlay" alt="کوکاکولا زیرو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">کوکاکولا زیرو<span class="item-price">35</span></div>
+                    <div class="item-desc">نوشابه قوطی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\water.jpeg" class="blackoverlay" alt="آب معدنی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آب معدنی<span class="item-price">15</span></div>
+                    <div class="item-desc">آب معدنی 500 میلی لیتر</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\icedlatte.webp" class="blackoverlay" alt="آیس لته" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس لته<span class="item-price">139</span></div>
+                    <div class="item-desc">دو شات اسپرسو، شیر سرد کم چرب، یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\icedmocha.webp" class="blackoverlay" alt="آیس موکا" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس موکا<span class="item-price">120</span></div>
+                    <div class="item-desc">دو شات اسپرسو، سس شکلات، شیر سرد کم چرب، یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\icecaramel.webp" class="blackoverlay" alt="آیس کارامل" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس کارامل<span class="item-price">139</span></div>
+                    <div class="item-desc">دو شات اسپرسو، سس کارامل، شیر سرد کم چرب، یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\icedamericano.webp" class="blackoverlay" alt="آیس آمریکانو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس آمریکانو<span class="item-price">110</span></div>
+                    <div class="item-desc">دو شات اسپرسو، آب سرد تصفیه شده، یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\iceSB.jpeg" class="blackoverlay" alt="آیس لته توت فزنگی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس لته توت فزنگی<span class="item-price">185</span></div>
+                    <div class="item-desc">دو شات اسپرسو، شیر سرد کم چرب، یخ و توت فزنگی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\chocyshake.webp" class="blackoverlay" alt="شیک شکلات" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">شیک شکلات<span class="item-price">330</span></div>
+                    <div class="item-desc"> 400 میلی لیتر، شکلات تلخ، شیر، جو دوسر، پودر پروتیین وی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\peanutshake.webp" class="blackoverlay" alt="شیک بادام زمینی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">شیک بادام زمینی<span class="item-price">330</span></div>
+                    <div class="item-desc">400 میلی لیتر، ترکیب بادام زمینی پروتیینی، شیر، پروتیین وی، جو دوسر</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\bar.jpeg" class="blackoverlay" alt="شیک باربی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">شیک باربی<span class="item-price">360</span></div>
+                    <div class="item-desc">400 میلی لیتر، توت فرنگی، شیر، پروتیین وی، وانیل، جو دوسر</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\907505-ice_matcha_americano1678.jpg" class="blackoverlay" alt="آیس ماچاکانو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس ماچاکانو<span class="item-price">220</span></div>
+                    <div class="item-desc">ماچا و آب و یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\starbucks-iced-matcha-latte-8.jpg" class="blackoverlay" alt="آیس لته ماچا" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس لته ماچا<span class="item-price">230</span></div>
+                    <div class="item-desc">ماچا و شیز سرد و یخ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images\strawberry-matcha-latte-500x500.jpg" class="blackoverlay" alt="آیس لته ماچا توت فزنگی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">آیس لته ماچا توت فرنگی<span class="item-price">250</span></div>
+                    <div class="item-desc">ماچا و شیز سرد و توت فرنگی و یخ</div>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <div class="category coffee-category">
+        <div class="category-title coffee-title">
+            بار گرم 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item" style="width: 200px; min-height: 100px;" >
+                <div class="item-content">
+                    <div class="item-name">اسپرسو دبل<span class="item-price">75</span></div>
+                    <div class="item-desc">60 میلی لیتر عصاره قهوه</div>
+                </div>
+            </div>
+            <!-- 4 آیتم دیگر -->
+            <div class="menu-item" style="width: 200px; min-height: 100px;">
+                <div class="item-content">
+                    <div class="item-name">لته<span class="item-price">139</span></div>
+                    <div class="item-desc">شات اسپرسو، شیر با فوم کم</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">موکا<span class="item-price">139</span></div>
+                    <div class="item-desc">شات اسپرسو، سس شکلات، شیر با فوم کم</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">کارامل ماکیاتو<span class="item-price">139</span></div>
+                    <div class="item-desc">شات اسپرسو، شیر با فوم کم، سس کارامل</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">هانی لته<span class="item-price">139</span></div>
+                    <div class="item-desc">شات اسپرسو، شیر با فوم کم و عسل</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">آمریکانو<span class="item-price">110</span></div>
+                    <div class="item-desc">شات اسپرسو، آب داغ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">کاپوچینو<span class="item-price">139</span></div>
+                    <div class="item-desc">شات اسپرسو، شیر با فوم زیاد
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">هات چاکلت<span class="item-price">139</span></div>
+                    <div class="item-desc"> پودر هات چاکلت گارلت، شکلات گارلت، شیر گرم با فوم کم</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">هات چاکلت اوت<span class="item-price">158</span></div>
+                    <div class="item-desc">پودر هات چاکلت گارلت، شکلات گارلت، شیر گرم با فوم کم و جو دو سر</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">ماچاکانو<span class="item-price">210</span></div>
+                    <div class="item-desc">ماچا و آب داغ</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">لته ماچا<span class="item-price">220</span></div>
+                    <div class="item-desc">ماچا و آب داغ و شیر با فوم کم</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">چای سیاه<span class="item-price">65</span></div>
+                    <div class="item-desc">چای دمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">چای سبز<span class="item-price">105</span></div>
+                    <div class="item-desc">چای سبز دمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">چای ترش<span class="item-price">119</span></div>
+                    <div class="item-desc">چای ترش دمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">کل کاو زبان<span class="item-price">125</span></div>
+                    <div class="item-desc">گل گاو زبان دمی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">آرامش بخش<span class="item-price">125</span></div>
+                    <div class="item-desc">گل گاو زبان، به لیمو و گل محمدی</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-content" style="width: 200px; min-height: 100px;">
+                    <div class="item-name">به لیمو<span class="item-price">125</span></div>
+                    <div class="item-desc">به لیمو دمی</div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="category sauce-category">
+        <div class="category-title sauce-title">
+            سس 
+            <span class="fitness-icon"></span>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item">
+            <div class="item">
+                <img src="images\redsauce.webp" class="blackoverlay" alt="سیر و فلفل" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سس سیر و فلفل رژیمی<span class="item-price">36و52</span></div>
+                    <div class="item-desc">دست ساز، تهیه شده با سس سیر و فلفل، تهیه شده از روغن زیتون، پوره گوجه، پودر کچاپ، ادویه سیر، فلفل پاپریکا، دانه های کنجد، بدون روغن ترانس دو بسته 60 و 120 میلی لیتر</div>
+                </div>
+            </div>
+        </div>
+            <div class="menu-item">
+            <div class="item">
+                <img src="images\bbqsauce.webp" class="blackoverlay" alt="چیلی باربیکیو" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سس چیلی باربیکیو رژیمی<span class="item-price">36و52</span></div>
+                    <div class="item-desc">سس دست ساز چیلی باربیکیو گارلت، تهیه شده از روغن زیتون، ادویه باربیکیو، ادویه کاری، بدون روغن ترانس، دانه های کنجد، فلفل پاپریکا دو بسته 60 و 120 میلی لیتر</div>
+                </div>
+            </div>
+        </div>
+            <div class="menu-item">
+            <div class="item">
+                <img src="images\caisersauce.webp" class="blackoverlay" alt="سالاد سزار " width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سس سالاد سزار رژیمی<span class="item-price">58و98</span></div>
+                    <div class="item-desc">دست ساز تهیه شده با روغن زیتون، کره بادام زمینی، ادویه مخصوص دو بسته 60 و 120 میلی لیتر</div>
+                </div>
+            </div>
+        </div>
+            <div class="menu-item">
+            <div class="item">
+                <img src="images\reyhan120.webp" class="blackoverlay" alt="ریحان و بادام زمینی" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سس ریحان و بادام زمینی رژیمی<span class="item-price">33و66</span></div>
+                    <div class="item-desc">ریحان تازه ، روغن زیتون ، کره بادام زمینی ، سرکه بالزامیک ، سس سویا ، آبلیمو ، ادویه ترکیبی دو بسته 60 و 120 میلی لیتر</div>
+                </div>
+            </div>
+        </div>
+            <div class="menu-item">
+            <div class="item">
+                <img src="images\garlicsauce120.webp" class="blackoverlay" alt="سیر و ماست" width="200" 
+                height="200">
+                <div class="item-content">
+                    <div class="item-name">سس سیر و ماست رژیمی<span class="item-price">22و44</span></div>
+                    <div class="item-desc">ماست یونانی ، روغن زیتون ، فلفل سیاه ، آبلیمو ، پودر سیر ، ادویه ترکیبی دو بسته 60 و 120 میلی لیتر</div>
+                </div>
+            </div>
+        </div>
+            <div class="menu-item">
+            <div class="item">
+                <div class="item-content">
+                    <div class="item-name">قاشق و چنگال<span class="item-price">2/5</span></div>
+                    <div class="item-desc">بسته قاشق و چنگال با دستمال و نمک</div>
+                </div>
+           
+        </div>    
+    </div>
+</div>
+</div>
+    <div class="contact-info">
+        <p>غذای سالم و رژیمی گارلت (زعفرانیه)</p>
+        <p>021-26204479</p>
+        <p>  سفارش در واتساپ:</p>
+            <p> 0939874519</p>
+        <p>مقدس اردبیلی، نرسیده به الف، مرکز خرید میلان، همکف، کافه گارلت</p>
+        <p>از محصولات رژیمی و ورزشی موجود داخل شعبه نیز دیدن کنید.</p>
+    </div>
+</body>
+</html>
