@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>منوی دیجیتال لایت کافه | Light Cafe</title>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --olive-primary: #556b2f;
+            --olive-light: #708a3e;
+            --olive-soft: #f4f6f0;
+            --olive-border: #d2dcbf;
+            --dark-bg: #121412;
+            --text-dark: #1b1e1b;
+            --text-muted: #6b756b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8f9f6;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 90px;
+        }
+        
+        /* Brand Header with Logo */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 18px;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .brand-logo-img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            border-radius: 24px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.15);
+        }
+
+        .brand-subtitle {
+            font-size: 11.5px;
+            color: var(--olive-primary);
+            font-weight: 800;
+            letter-spacing: 0.8px;
+        }
+
+        .brand-banner {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .brand-banner .badge {
+            background: var(--olive-primary);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+        
+        /* Sticky Horizontal Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            padding: 12px 10px;
+            z-index: 1000;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            direction: rtl;
+            max-width: 600px;
+            margin: 0 auto;
+            border-bottom: 2px solid var(--olive-primary);
+            gap: 8px;
+        }
+        
+        .sticky-nav::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background: var(--olive-soft);
+            border-radius: 30px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border: 1px solid var(--olive-border);
+        }
+        
+        .nav-item.active,
+        .nav-item:hover {
+            background: var(--olive-primary);
+            color: white;
+            border-color: var(--olive-primary);
+            transform: translateY(-1px);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 28px;
+            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid #e7ebe0;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            scroll-margin-top: 105px;
+        }
+        
+        .category-header {
+            padding: 16px 20px;
+            background: var(--dark-bg);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-subtitle {
+            font-size: 11.5px;
+            color: #b7c7a5;
+        }
+        
+        .menu-items {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        /* Sandwich & Club Card */
+        .sandwich-card {
+            background: var(--white);
+            border: 1.5px solid #edf1e6;
+            border-radius: 14px;
+            padding: 14px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .sandwich-card:hover {
+            border-color: var(--olive-primary);
+            box-shadow: 0 6px 18px rgba(85, 107, 47, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Framing Fix */
+        .sandwich-img-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #eef2e6;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sandwich-img-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            margin: 0 !important;
+            transition: transform 0.3s ease;
+        }
+
+        .sandwich-card:hover .sandwich-img-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .sandwich-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--dark-bg);
+        }
+
+        .sandwich-sub {
+            font-size: 12px;
+            color: var(--olive-primary);
+            font-weight: 600;
+        }
+
+        .price-tag {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--white);
+            background: var(--dark-bg);
+            padding: 4px 14px;
+            border-radius: 30px;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+            font-feature-settings: "tnum";
+        }
+
+        .sandwich-ingredients {
+            font-size: 12.5px;
+            color: #4a544a;
+            line-height: 1.6;
+        }
+
+        .bread-tag-wrapper {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .bread-tag {
+            font-size: 11px;
+            background: #f0f4ea;
+            color: var(--olive-primary);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid #dce5cf;
+        }
+
+        /* Macro Metrics Ribbon */
+        .macro-ribbon {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            background: #fafbf8;
+            border: 1px solid #eef2e7;
+            border-radius: 10px;
+            padding: 8px 10px;
+            text-align: center;
+        }
+
+        .macro-box .lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .macro-box .val {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--dark-bg);
+            font-feature-settings: "tnum";
+        }
+
+        .macro-box.highlight .val {
+            color: var(--olive-primary);
+        }
+
+        /* Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .grid-item {
+            border: 1px solid #edf1e6;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .grid-item:hover {
+            border-color: var(--olive-primary);
+        }
+
+        .grid-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            background: #f3f6ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-img-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            object-fit: cover;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .item-badge-matcha {
+            align-self: flex-start;
+            background: #eef5e6;
+            color: var(--olive-primary);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .item-badge-shake {
+            align-self: flex-start;
+            background: #f5efe6;
+            color: #7a4e1d;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .item-badge-chia {
+            align-self: flex-start;
+            background: #f0f7ea;
+            color: #3b6122;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .grid-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--dark-bg);
+            margin-bottom: 4px;
+        }
+
+        .grid-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .grid-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .grid-price {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--dark-bg);
+            font-feature-settings: "tnum";
+        }
+
+        /* Store Footer */
+        .contact-card {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #c9e0a8;
+        }
+
+        .contact-card p {
+            font-size: 13px;
+            color: #d1d8cc;
+            margin: 6px 0;
+        }
+
+        @media (max-width: 480px) {
+            body { padding-top: 85px; }
+            .grid-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav">
+        <a href="#sandwiches" class="nav-item active">🥪 ساندویچ‌های تخصصی</a>
+        <a href="#clubs" class="nav-item">🥪  کلاب‌ها</a>
+        <a href="#shakes" class="nav-item">🥤 پروشیک‌ها و بار سرد</a>
+        <a href="#chia-puddings" class="nav-item">🌱 پودینگ چیا</a>
+        <a href="#oatmeal" class="nav-item">🥣 اوتمیل و سالاد</a>
+        <a href="#coffee" class="nav-item">☕ بار گرم</a>
+    </nav>
+
+    <!-- Brand Header -->
+    <div class="brand-header">
+        <img src="images/logo.png" alt="Light Cafe Logo" class="brand-logo-img">
+        <div class="brand-subtitle">HIGH PROTEIN &bull; MEDITERRANEAN DELI &bull; CONTROLLED CALORIES</div>
+    </div>
+
+    <!-- Quick Guarantee Notice -->
+    <div class="brand-banner">
+        <span>🔥 امکان سرو تازه و سرد یا گریل‌شده ترد در پرس</span>
+        <span class="badge">پروتئین بالا و پاک</span>
+    </div>
+    
+    <!-- ==================== 1. MASTER SANDWICHES ==================== -->
+    <div id="sandwiches" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">🥪 ساندویچ‌های تخصصی لایت</div>
+                <div class="category-subtitle">انتخاب نان: چاباتا جو سبوس‌دار (۷۵g) یا پوچیا آرتیزان (۵۰g)</div>
+            </div>
+        </div>
+        <div class="menu-items">
+
+            <!-- 1. ATENA -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/athena.jfif" alt="ساندویچ آتنا" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">آتنا</div>
+                        <div class="sandwich-sub"> پروتئین مدیترانه‌ای</div>
+                    </div>
+                    <div class="price-tag">820</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ۱۶۰ گرم ژامبون بوقلمون ۹۸٪ ، پنیر فتا کم‌چرب، پنیر موزارلا تازه، روکولا، اسفناج، گوجه گیلاسی، زیتون سیاه و کرمای یونانی دست ساز و لیمو ترش تازه.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">نان چاباتا جو یا پوچیا</span>
+                    <span class="bread-tag">۹۸٪ بوقلمون خالص</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">486 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین کل</span><span class="val">52g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی مفید</span><span class="val">18g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 2. ROMA -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/roma.jfif" alt="ساندویچ روما" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">روما</div>
+                        <div class="sandwich-sub">ایتالین مِلت با هات‌هانی و خردل دست ساز</div>
+                    </div>
+                    <div class="price-tag">740</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ۸۰ گرم بوقلمون ۹۸٪، ۳۵ گرم پپرونی گوشت تخمیری ۸۰٪ (کم‌کالری)، موزارلا تازه ایتالیایی، روکولا، گوجه خشک و گیلاسی، سس دیژون ترش دست‌ساز، عسل تند (Hot Honey)، پاپریکا دودی.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">پپرونی رژیمی </span>
+                    <span class="bread-tag">هات هانی دست‌ساز</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">412 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">39g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">13g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- CHICKEN & WALNUT -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/chickwalnut.webp" alt="ساندویچ مرغ و گردو رژیمی" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">ساندویچ مرغ و گردو رژیمی 🍗</div>
+                        <div class="sandwich-sub">نان چاباتا با مرغ بخارپز و مغز گردو</div>
+                    </div>
+                    <div class="price-tag">۴۸۰</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    نان چاباتا، فیله مرغ بخارپز لطیف، مغز گردو خرد شده، خیارشور قلمی، کرمای ماست یونانی و پنیر کم‌چرب ویچیتا (وزن ۲۴۰ گرم).
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">نان چاباتا</span>
+                    <span class="bread-tag">پرفروش اسنپ‌فود</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">198 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">30g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">7g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 3. BELLA CAPRESE -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/caprese.webp" alt="ساندویچ بلا کاپرزه" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">بلا کاپرزه</div>
+                        <div class="sandwich-sub">کلاسیک اصیل کاپری (گیاهی)</div>
+                    </div>
+                    <div class="price-tag">570</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    موزارلا تازه، گوجه گیلاسی، بیبی اسفناج، گوجه خشک، ریحان تازه معطر و گلیز بالزامیک غلیظ (Balsamic Glaze).
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">سبک و ارگانیک</span>
+                    <span class="bread-tag">گلیز بالزامیک غلیظ</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">481 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">25g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">24g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 4. AMALFI -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/amalfi.jfif" alt="ساندویچ آمالفی" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">آمالفی</div>
+                        <div class="sandwich-sub">کم‌کالری‌ترین بوقلمون رژیمی</div>
+                    </div>
+                    <div class="price-tag">690</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ژامبون بوقلمون ۹۸٪، موزارلا، روکولا تازه، گوجه خشک، کرمای دیژون دست ساز رژیمی، زست لیمو ترش و هات‌هانی ملایم.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">فوق‌العاده سبک</span>
+                    <span class="bread-tag">سس دیژون رژیمی</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">379 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">41g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">11g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 5. MILANO -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/milano.jfif" alt="ساندویچ میلانو" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">میلانو</div>
+                        <div class="sandwich-sub">ژامبون گوشت با دیژون و بالزامیک</div>
+                    </div>
+                    <div class="price-tag">630</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ژامبون گوشت گوساله دودی ، موزارلا تازه، روکولا، گوجه گیلاسی، زیتون سیاه مدیترانه‌ای، گوجه خشک، ریحان، کرما دیژون و گلیز بالزامیک غلیظ.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">گوشت دودی ممتاز</span>
+                    <span class="bread-tag">گلیز بالزامیک</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">469 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">34g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">25g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 6. VESUVIO -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/vesuvio.jfif" alt="ساندویچ وزوو" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">وزوو</div>
+                        <div class="sandwich-sub">پپرونی تخمیری آرتیزان و زیتون سیاه</div>
+                    </div>
+                    <div class="price-tag">590</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    سوسیس پپرونی سلامی ۸۰٪ گوشت خالص، پنیر موزارلا ذوب‌شده، روکوولا تازه، گوجه خشک، زیتون سیاه بدون هسته، ریحان معطر و گلیز بالزامیک غلیظ.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">پپرونی تخمیری</span>
+                    <span class="bread-tag">گلیز بالزامیک</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">473 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">29g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">29g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 7. FUOKO -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/fuoco.jfif" alt="ساندویچ فوئُوکو" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">فوئُوکو</div>
+                        <div class="sandwich-sub">طعم تند و شیرین توسکانی</div>
+                    </div>
+                    <div class="price-tag">580</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    پپرونی کم‌چرب، موزارلا، گوجه گیلاسی شیرین، سس خردل تند دیژون دست ساز هات هانی دست ساز و ریحان تازه.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">تند و شیرین</span>
+                    <span class="bread-tag">هات هانی دست‌ساز</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">486 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">28g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">27g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 8. ATHENA GREEK -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/greek athena.jfif" alt="ساندویچ آتنا گریک" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">آتنا یونانی</div>
+                        <div class="sandwich-sub">بوقلمون، فتا و عطر اورگانو</div>
+                    </div>
+                    <div class="price-tag">675</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    بوقلمون ۹۸٪، پنیر فتا یونانی اصل، روکوولا، بیبی اسفناج، گوجه گیلاسی، زیتون سیاه، آب لیمو ترش طبیعی، اورگانو کوهی و سس سیر دست ساز.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">طعم یونانی اصیل</span>
+                    <span class="bread-tag">ماست و اورگانو</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">402 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">44g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">13g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 9. VERDE -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/verde.jfif" alt="ساندویچ ورده" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">ورده </div>
+                        <div class="sandwich-sub">ویگن</div>
+                    </div>
+                    <div class="price-tag">490</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    موزارلا تازه، ترکیب اسفناج و روکولا، گوجه گیلاسی و گوجه خشک، زیتون سبز پرورده رژیمی، مغز گردو خرد شده، ریحان تازه، گلیز بالزامیک غلیظ.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">مغز گردو مقوی</span>
+                    <span class="bread-tag">گلیز بالزامیک</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">339 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">26g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">27g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- 10. FIRENZE -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/firenze.jfif" alt="ساندویچ فلورانس" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">فلورانس </div>
+                        <div class="sandwich-sub"> ژامبون گوشت و پپرونی</div>
+                    </div>
+                    <div class="price-tag">760</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ژامبون گوشت گوساله ، پپرونی سالامی، موزارلا، روکولا، گوجه گیلاسی، گوجه خشک، زیتون سیاه، سس دیژون دست ساز و گلیز بالزامیک غلیظ.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">دوبل گوشت و پپرونی</span>
+                    <span class="bread-tag">گلیز بالزامیک</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">481 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">39g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">24g چربی</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== 2. SUPER CLUBS ==================== -->
+    <div id="clubs" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">🥪 سوپر کلاب‌های رژیمی پروتئینی</div>
+                <div class="category-subtitle">تهیه شده با نان تست سبوس‌دار هفت‌غله آرتیزان</div>
+            </div>
+        </div>
+        <div class="menu-items">
+
+            <!-- Super Club Beef -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/pepperoni.png" alt="سوپر کلاب گوشت رژیمی" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">سوپر کلاب گوشت رژیمی 🥩</div>
+                        <div class="sandwich-sub">نان سبوس‌دار هفت غله با راسته رست‌شده</div>
+                    </div>
+                    <div class="price-tag">۵۴۹</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    نان تست هفت غله سبوس‌دار، 120 گرم ژامبون گوشت فرآوری شده، پنیرگودا و سس مخصوص رژیمی.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">نان ۷ غله سبوس‌دار</span>
+                    <span class="bread-tag">120 گرم گوشت </span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">341 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">32g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">8g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- Super Club Maryland Turkey -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/turkeyclub.png" alt="سوپر کلاب بیکن بوقلمون" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">سوپر کلاب بیکن مریلند بوقلمون 🦃</div>
+                        <div class="sandwich-sub">بیکن بوقلمون، زیتون سیاه و گوجه خشک</div>
+                    </div>
+                    <div class="price-tag">۵۱۰</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ۱۲۰ گرم بیکن بوقلمون خالص، نان تست سبوس‌دار، گوجه خشک طعم‌دار، زیتون سیاه اسلایس شده و سس کرمای رژیمی ویژه.
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">۱۲۰ گرم بیکن خالص</span>
+                    <span class="bread-tag">پروتئین بالا</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">325 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">31g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">9g چربی</span></div>
+                </div>
+            </div>
+
+            <!-- Super Club Pepperoni -->
+            <div class="sandwich-card">
+                <div class="sandwich-img-wrapper">
+                    <img src="images/pepperoni (2).png" alt="سوپر کلاب پپرونی" onerror="this.style.display='none'">
+                </div>
+                <div class="card-top">
+                    <div>
+                        <div class="sandwich-title">سوپر کلاب پپرونی گوشت رژیمی 🍕</div>
+                        <div class="sandwich-sub">پپرونی تخمیری کم‌کالری با پنیر ورقه‌ای</div>
+                    </div>
+                    <div class="price-tag">۴۸۰</div>
+                </div>
+                <div class="sandwich-ingredients">
+                    ۱۰۰ گرم کالباس پپرونی گوشت رژیمی ۸۰٪، نان تست دست‌ساز سبوس‌دار، پنیر ورقه‌ای رژیمی و سس مخصوص لایت .
+                </div>
+                <div class="bread-tag-wrapper">
+                    <span class="bread-tag">۱۰۰ گرم پپرونی ۸۰٪</span>
+                    <span class="bread-tag">ترد و داغ در پرس</span>
+                </div>
+                <div class="macro-ribbon">
+                    <div class="macro-box"><span class="lbl">کالری کل</span><span class="val">360 kcal</span></div>
+                    <div class="macro-box highlight"><span class="lbl">پروتئین</span><span class="val">30g پرو</span></div>
+                    <div class="macro-box"><span class="lbl">چربی</span><span class="val">12g چربی</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== 3. PROTEIN SHAKES & COLD BAR ==================== -->
+    <div id="shakes" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">🥤 پروشیک‌ها و بار سرد تخصصی</div>
+                <div class="category-subtitle">تهیه شده با پروتئین وی ایزوله، جو دوسر، شیر کم‌چرب و ماچای تشریفاتی</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="grid-layout">
+                
+                <!-- Protein Shake Peanut Butter -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/peanutshake.webp" alt="شیک پروتئین بادام زمینی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-shake">PRO SHAKE (400ml)</div>
+                    <div class="grid-name">شیک پروتئین بادام‌زمینی 🥜</div>
+                    <div class="grid-desc">کره بادام زمینی خالص، شیر کم‌چرب، پودر پروتئین وی، جو دوسر پرک</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۹۰ ت</span></div>
+                </div>
+
+                <!-- Protein Shake Chocolate -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chocyshake.webp" alt="شیک پروتئین شکلات" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-shake">PRO SHAKE (400ml)</div>
+                    <div class="grid-name">شیک پروتئین شکلات تلخ 🍫</div>
+                    <div class="grid-desc">شکلات تلخ رژیمی، شیر کم‌چرب، جو دوسر، پودر پروتئین وی ایزوله</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۹۰ ت</span></div>
+                </div>
+
+                <!-- Protein Shake Barbie (Strawberry) -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/bar.jpeg" alt="شیک پروتئینی باربی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-shake">PRO SHAKE (400ml)</div>
+                    <div class="grid-name">شیک پروتئین باربی (توت‌فرنگی) 🍓</div>
+                    <div class="grid-desc">پوره توت‌فرنگی تازه، شیر، پروتئین وی ایزوله، عصاره وانیل و جو دوسر</div>
+                    <div class="grid-bottom"><span class="grid-price">۴۲۵ ت</span></div>
+                </div>
+
+                <!-- Signature Proshake SB-PEA (500ml) -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/proshakeSBPEA.jpg" alt="پروشیک بادام زمینی و توت فرنگی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-shake">PRO SHAKE (500ml)</div>
+                    <div class="grid-name">پروشیک توت‌فرنگی بادام‌زمینی</div>
+                    <div class="grid-desc">ترکیب ویژه کره بادام‌زمینی، توت‌فرنگی، شیر، وی وانیل، موز، گرانولا</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۹۵ ت</span></div>
+                </div>
+
+                <!-- Matcha Specials -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/icedmatchaSB.jpg" alt="آیس لته ماچا توت فرنگی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-matcha">MATCHA SPECIAL</div>
+                    <div class="grid-name">آیس لته ماچا توت‌فرنگی 🍓</div>
+                    <div class="grid-desc">ماچا سرومونیال ژاپن، پوره توت‌فرنگی تازه، شیر سرد، یخ</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۷۰ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/icedmatchalatte.jpg" alt="آیس لته ماچا کلاسیک" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-matcha">MATCHA SPECIAL</div>
+                    <div class="grid-name">آیس لته ماچا کلاسیک 🍵</div>
+                    <div class="grid-desc">پودر ماچا تشریفاتی ارگانیک، شیر کم‌چرب خنک، یخ</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۲۰ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/907505-ice_matcha_americano1678.jpg" alt="آیس ماچاکانو" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-matcha">MATCHA SPECIAL</div>
+                    <div class="grid-name">آیس ماچاکانو (Matcha-cano)</div>
+                    <div class="grid-desc">عصاره ماچای خالص هم‌زده با بمب آنتی‌اکسیدان، آب سرد و یخ</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۱۰ ت</span></div>
+                </div>
+
+                <!-- Cold Coffees -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/icedamericano.webp" alt="آیس آمریکانو" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">آیس آمریکانو لایت</div>
+                    <div class="grid-desc">۲ شات اسپرسو ۱۰۰٪ عربیکا تخصصی، آب تصفیه خنک، یخ</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۵۵ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/icedlatte.webp" alt="آیس لته کم‌چرب" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">آیس لته کم‌چرب</div>
+                    <div class="grid-desc">۲ شات اسپرسو، شیر کم چرب سرد، یخ بلوری</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۶۵ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/mojito.jpeg" alt="موهیتو زیرو" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">موهیتو زیرو رژیمی 🍋</div>
+                    <div class="grid-desc">نعنا تازه کوبیده، آب لیمو ترش سنگی، آب گازدار سودا، استویا</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۶۹ ت</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 4. CHIA PUDDINGS ==================== -->
+    <div id="chia-puddings" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">🌱 پودینگ چیا پروتئینی (۴ طعم)</div>
+                <div class="category-subtitle">دانه چیا ارگانیک، ماست یونانی، پروتئین وی ایزوله و استویا (۲۰۰ گرم)</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="grid-layout">
+                
+                <!-- 1. Strawberry (SB) -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chiapuddingSB.jpg" alt="پودینگ چیا توت فرنگی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">22g پروتئین</div>
+                    <div class="grid-name">پودینگ چیا توت‌فرنگی (SB) 🍓</div>
+                    <div class="grid-desc">دانه چیا، شیر کم چرب، ماست یونانی، پروتئین وی و تاپینگ توت‌فرنگی رژیمی | 206 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۳۰ ت</span></div>
+                </div>
+
+                <!-- 2. Peanut Butter (PB) -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chiapuddingPEA.jpg" alt="پودینگ چیا کره بادام زمینی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">23g پروتئین</div>
+                    <div class="grid-name">پودینگ چیا بادام‌زمینی (PB) 🥜</div>
+                    <div class="grid-desc">کره بادام زمینی رژیمی، دانه چیا، ماست یونانی، پروتئین وی، استویا | 209 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۲۵ ت</span></div>
+                </div>
+
+                <!-- 3. Pistachio -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chiapuddingpistachio.jpg" alt="پودینگ چیا پسته" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">22g پروتئین</div>
+                    <div class="grid-name">پودینگ چیا پسته اعلا 🌿</div>
+                    <div class="grid-desc">مغز پسته آسیاب شده رژیمی، دانه چیا، ماست یونانی، پروتئین وی، استویا | 208 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۸۰ ت</span></div>
+                </div>
+
+                <!-- 4. Mango -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chiapuddingmango.jpg" alt="پودینگ چیا انبه" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">22g پروتئین</div>
+                    <div class="grid-name">پودینگ چیا انبه استوایی 🥭</div>
+                    <div class="grid-desc">تاپینگ انبه طبیعی بدون شکر، دانه چیا، ماست یونانی، پروتئین وی | 206 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۳۳۰ ت</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 5. OATMEAL & HEALTHY SALADS ==================== -->
+    <div id="oatmeal" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">🥣 اوتمیل پروتئینی و سالادهای پاک</div>
+                <div class="category-subtitle">سرشار از فیبر و پروتئین خالص، بدون سس‌های چرب صنعتی</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="grid-layout">
+                
+                <!-- PROTEIN SALAD (350g) -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/baconsalad.webp" alt="سالاد پروتئین" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">۳۵۰ گرم &bull; غنی از پروتئین</div>
+                    <div class="grid-name">سالاد پروتئین لایت (Protein Salad) 🥗</div>
+                    <div class="grid-desc">۱۰۰ گرم رست‌بیف/بوقلمون، پنیر فتا، گوجه گیلاسی، زیتون سیاه و سبز، مغزها، کاهو و کرمای ماست و سیر</div>
+                    <div class="grid-bottom"><span class="grid-price">۴۵۵ ت</span></div>
+                </div>
+
+                <!-- MEDITERRANEAN SALAD -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/basicsalad.webp" alt="سالاد مدیترانه" onerror="this.style.display='none'">
+                    </div>
+                    <div class="item-badge-chia">کم‌کالری &bull; تازه</div>
+                    <div class="grid-name">سالاد مدیترانه رژیمی 🥬</div>
+                    <div class="grid-desc">کاهو رسمی، زیتون سیاه و سبز، پنیر فتا، گوجه فرنگی، سیاهدانه با سس ماست و سیر لایت</div>
+                    <div class="grid-bottom"><span class="grid-price">۴۳۰ ت</span></div>
+                </div>
+
+                <!-- OATMEAL PEANUT 380ml -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/peanutoat.webp" alt="اوتمیل بادام زمینی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">اوتمیل بادام‌زمینی (۳۸۰ml)</div>
+                    <div class="grid-desc">ماست یونانی، شیر، کورن‌فلکس رژیمی، گرانولا، کره بادام زمینی، پروتئین وی | 356 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۴۲۵ ت</span></div>
+                </div>
+
+                <!-- OATMEAL CHOCOLATE 380ml -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/chocyoat.webp" alt="اوتمیل شکلات" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">اوتمیل شکلاتی (۳۸۰ml)</div>
+                    <div class="grid-desc">ماست یونانی، شیر، کرن‌فلکس رژیمی، گرانولا، شکلات تلخ، موز و پروتئین وی | 231 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۴۲۵ ت</span></div>
+                </div>
+
+                <!-- MINI OATMEAL PEANUT 220ml -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/minioatpeanut.jpeg" alt="مینی اوتمیل بادام زمینی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">مینی اوتمیل بادام‌زمینی (۲۲۰ml)</div>
+                    <div class="grid-desc">گرانولا، ماست یونانی، موز، کره بادام زمینی و پودر پروتئین وی | 162 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۵۹ ت</span></div>
+                </div>
+
+                <!-- MINI OATMEAL CHOCOLATE 220ml -->
+                <div class="grid-item">
+                    <div class="grid-img-wrapper">
+                        <img src="images/minichocu oat.webp" alt="مینی اوتمیل شکلاتی" onerror="this.style.display='none'">
+                    </div>
+                    <div class="grid-name">مینی اوتمیل شکلاتی (۲۲۰ml) 🍫</div>
+                    <div class="grid-desc">گرانولا خانگی، ماست یونانی، شکلات تلخ رژیمی، موز، پروتئین وی | 153 کالری</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۵۹ ت</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 6. HOT BAR ==================== -->
+    <div id="coffee" class="category">
+        <div class="category-header">
+            <div>
+                <div class="category-title">☕ بار گرم قهوه و ماچا</div>
+                <div class="category-subtitle">دانه قهوه ۱۰۰٪ اسپشیالتی و شیر تازه کم‌چرب</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="grid-layout">
+                
+                <div class="grid-item">
+                    <div class="item-badge-matcha">MATCHA SPECIAL</div>
+                    <div class="grid-name">لته ماچا داغ (Warm Matcha)</div>
+                    <div class="grid-desc">ماچا ارگانیک ژاپنی، شیر بخاردیده با میکروفوم ابریشمی</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۱۰ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="item-badge-matcha">MATCHA SPECIAL</div>
+                    <div class="grid-name">ماچاکانو گرم</div>
+                    <div class="grid-desc">ماچای خالص حل شده در آب داغ، بدون کالری و انرژی‌بخش پایدار</div>
+                    <div class="grid-bottom"><span class="grid-price">۲۱۰ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-name">اسپرسو سینگل / دوبل</div>
+                    <div class="grid-desc">عصاره‌گیری استاندارد اسپرسو عربیکا</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۳۰ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-name">آمریکانو داغ</div>
+                    <div class="grid-desc">دوبل اسپرسو، آب داغ تصفیه شده</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۵۵ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-name">کاپوچینو / لته لایت</div>
+                    <div class="grid-desc">اسپرسو با میکروفوم شیر کم‌چرب داغ</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۶۵ ت</span></div>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-name">دمنوش آرامش‌بخش گیاهی</div>
+                    <div class="grid-desc">گل گاوزبان، به‌لیمو، گل سرخ دمی</div>
+                    <div class="grid-bottom"><span class="grid-price">۱۵۰ ت</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Store Information -->
+    <div class="contact-card">
+        <h3>light cafe &bull; لایت کافه</h3>
+        <p>🥪 ساندویچ‌های سرد آرتیزان، سوپر کلاب‌ها، پروشیک‌های پروتئینی و ماچای تشریفاتی</p>
+        <p>🛵 سفارش آسان و تحویل سریع از طریق اسنپ‌فود و واتساپ</p>
+        <p>📍 زعفرانیه، بین الف و ب، مرکز خرید میلان، طبقه همکف، کافه لایت</p>
+    </div>
+
+    <script>
+        const navItems = document.querySelectorAll('.nav-item');
+        const categories = document.querySelectorAll('.category');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            categories.forEach(category => {
+                const sectionTop = category.offsetTop;
+                if (pageYOffset >= (sectionTop - 120)) {
+                    current = category.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
